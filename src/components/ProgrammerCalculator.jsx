@@ -79,47 +79,35 @@ export default function ProgrammerCalculator() {
         ))}
       </div>
 
-      {/* 5-column grid */}
-      <div className="calc-grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
-        {/* Row 1: editing & bitwise ops */}
-        <Btn label="C" className="calc-btn-func" onClick={d('CLEAR')} />
-        <Btn label="⌫" className="calc-btn-func" onClick={d('BACKSPACE')} />
-        <Btn label="AND" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'AND' })} />
-        <Btn label="OR" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'OR' })} />
-        <Btn label="XOR" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'XOR' })} />
+      <div className="calc-body">
+        <div className="calc-digits-panel" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          {/* Bitwise ops + editing */}
+          <Btn label="AND" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'AND' })} />
+          <Btn label="OR"  className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'OR' })} />
+          <Btn label="XOR" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: 'XOR' })} />
+          <Btn label="<<"  className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '<<' })} />
 
-        {/* Row 2: NOT, shifts, basic ops */}
-        <Btn label="NOT" className="calc-btn-func" onClick={d('UNARY_NOT')} />
-        <Btn label="<<" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '<<' })} />
-        <Btn label=">>" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '>>' })} />
-        <Btn label="÷" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '÷' })} />
-        <Btn label="×" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '×' })} />
+          <Btn label=">>"  className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '>>' })} />
+          <Btn label="C"   className="calc-btn-func" onClick={d('CLEAR')} />
+          <Btn label="⌫"  className="calc-btn-func" onClick={d('BACKSPACE')} />
+          <Btn label="NOT" className="calc-btn-func" onClick={d('UNARY_NOT')} />
 
-        {/* Row 3: more ops */}
-        <Btn label="−" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '-' })} />
-        <Btn label="+" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '+' })} />
-        <Btn label="=" className="calc-btn-operator" wide onClick={d('CALCULATE')} />
+          {/* Hex digits 0-F (4×4) */}
+          {ALL_DIGITS.map(dig => (
+            <Btn key={dig} label={dig} className="calc-btn-digit"
+              onClick={d('INPUT_DIGIT', { digit: dig })} disabled={digitDisabled(dig)} />
+          ))}
+        </div>
 
-        {/* Row 4: digits 1-5 */}
-        {ALL_DIGITS.slice(1, 6).map(dig => (
-          <Btn key={dig} label={dig} className="calc-btn-digit"
-            onClick={d('INPUT_DIGIT', { digit: dig })} disabled={digitDisabled(dig)} />
-        ))}
+        <div className="calc-panel-divider" />
 
-        {/* Row 5: digits 6-9, A */}
-        {ALL_DIGITS.slice(6, 11).map(dig => (
-          <Btn key={dig} label={dig} className="calc-btn-digit"
-            onClick={d('INPUT_DIGIT', { digit: dig })} disabled={digitDisabled(dig)} />
-        ))}
-
-        {/* Row 6: digits B-F */}
-        {ALL_DIGITS.slice(11, 16).map(dig => (
-          <Btn key={dig} label={dig} className="calc-btn-digit"
-            onClick={d('INPUT_DIGIT', { digit: dig })} disabled={digitDisabled(dig)} />
-        ))}
-
-        {/* Row 7: 0 */}
-        <Btn label="0" className="calc-btn-digit" onClick={d('INPUT_DIGIT', { digit: '0' })} />
+        <div className="calc-ops-panel">
+          <Btn label="÷" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '÷' })} />
+          <Btn label="×" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '×' })} />
+          <Btn label="−" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '-' })} />
+          <Btn label="+" className="calc-btn-operator" onClick={d('INPUT_OPERATOR', { operator: '+' })} />
+          <Btn label="=" className="calc-btn-operator" onClick={d('CALCULATE')} />
+        </div>
       </div>
     </div>
   )
