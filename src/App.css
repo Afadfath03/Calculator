@@ -1,0 +1,34 @@
+.app-layout {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  .app-content {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-layout {
+    flex-direction: column-reverse;
+  }
+
+  .app-content {
+    padding: 8px;
+    padding-bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    align-items: flex-end;
+  }
+}

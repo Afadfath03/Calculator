@@ -1,0 +1,120 @@
+.sidebar {
+  width: 180px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  padding: 16px 10px;
+  gap: 8px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.sidebar-btn {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  background: transparent;
+  color: var(--text-secondary);
+  transition: background 0.15s ease, color 0.15s ease;
+  min-height: 40px;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-btn:hover {
+  background: var(--bg-sidebar-hover);
+  color: var(--text);
+}
+
+.sidebar-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.theme-toggle {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--btn-toggle);
+  color: var(--btn-toggle-text);
+  border: 1px solid var(--border);
+  transition: background 0.15s ease, color 0.15s ease;
+  min-height: 40px;
+}
+
+.theme-toggle:hover {
+  filter: brightness(1.08);
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 140px;
+    min-width: 140px;
+    padding: 12px 8px;
+  }
+
+  .sidebar-btn {
+    padding: 8px 10px;
+    font-size: 13px;
+    min-height: 38px;
+  }
+
+  .theme-toggle {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    padding: 8px;
+    padding-bottom: calc(8px + var(--safe-bottom));
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex: 1;
+    gap: 4px;
+  }
+
+  .sidebar-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 6px;
+    font-size: 12px;
+    border-radius: 6px;
+    min-height: 44px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+  }
+
+  .sidebar-btn.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent);
+  }
+
+  .theme-toggle {
+    padding: 10px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+}
