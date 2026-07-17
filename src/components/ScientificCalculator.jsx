@@ -47,31 +47,34 @@ export default function ScientificCalculator() {
         )}
       </div>
 
-      <div className="calc-grid" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
-        <Btn label="(" className="calc-btn-func" onClick={d('PAREN', { paren: '(' })} />
-        <Btn label=")" className="calc-btn-func" onClick={d('PAREN', { paren: ')' })} />
-        <Btn label="MC" className="calc-btn-func" onClick={d('MEMORY', { op: 'MC' })} />
-        <Btn label="MR" className="calc-btn-func" onClick={d('MEMORY', { op: 'MR' })} />
-        <Btn label="M+" className="calc-btn-func" onClick={d('MEMORY', { op: 'M+' })} />
+      <div className="calc-body" style={{ marginBottom: 8 }}>
+        <div className="calc-digits-panel" style={{ gridTemplateColumns: 'repeat(2, 1fr)', flex: 2 }}>
+          <Btn label="(" className="calc-btn-func" onClick={d('PAREN', { paren: '(' })} />
+          <Btn label=")" className="calc-btn-func" onClick={d('PAREN', { paren: ')' })} />
+          <Btn label="MC" className="calc-btn-func" onClick={d('MEMORY', { op: 'MC' })} />
+          <Btn label="MR" className="calc-btn-func" onClick={d('MEMORY', { op: 'MR' })} />
+          <Btn label="M+" className="calc-btn-func" onClick={d('MEMORY', { op: 'M+' })} />
+          <Btn label="M−" className="calc-btn-func" onClick={d('MEMORY', { op: 'M-' })} />
+        </div>
 
-        <Btn label="sin" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'sin' })} />
-        <Btn label="cos" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'cos' })} />
-        <Btn label="tan" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'tan' })} />
-        <Btn label="log" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'log' })} />
-        <Btn label="ln" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'ln' })} />
+        <div className="calc-panel-divider" />
 
-        <Btn label="√" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '√' })} />
-        <Btn label="x²" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'x²' })} />
-        <Btn label="x³" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'x³' })} />
-        <Btn label="xⁿ" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '^' })} />
-        <Btn label="10ⁿ" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '10ⁿ' })} />
-
-        <Btn label="n!" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'n!' })} />
-        <Btn label="1/x" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '1/x' })} />
-        <Btn label="π" className="calc-btn-func" onClick={d('CONSTANT', { display: 'π', value: String(Math.PI) })} />
-        <Btn label="e" className="calc-btn-func" onClick={d('CONSTANT', { display: 'e', value: String(Math.E) })} />
-        <Btn label="M−" className="calc-btn-func" onClick={d('MEMORY', { op: 'M-' })} />
-
+        <div className="calc-digits-panel" style={{ gridTemplateColumns: 'repeat(3, 1fr)', flex: 3 }}>
+          <Btn label="sin" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'sin' })} />
+          <Btn label="cos" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'cos' })} />
+          <Btn label="tan" className="calc-btn-func" onClick={d('TRIG_FUNC', { fn: 'tan' })} />
+          <Btn label="log" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'log' })} />
+          <Btn label="ln" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'ln' })} />
+          <Btn label="√" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '√' })} />
+          <Btn label="x²" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'x²' })} />
+          <Btn label="x³" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'x³' })} />
+          <Btn label="xⁿ" className="calc-btn-func" onClick={d('INPUT_OPERATOR', { operator: '^' })} />
+          <Btn label="10ⁿ" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '10ⁿ' })} />
+          <Btn label="n!" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: 'n!' })} />
+          <Btn label="1/x" className="calc-btn-func" onClick={d('UNARY_FUNC', { fn: '1/x' })} />
+          <Btn label="π" className="calc-btn-func" onClick={d('CONSTANT', { display: 'π', value: String(Math.PI) })} />
+          <Btn label="e" className="calc-btn-func" onClick={d('CONSTANT', { display: 'e', value: String(Math.E) })} />
+        </div>
       </div>
 
       <div className="calc-body">
