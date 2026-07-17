@@ -1,0 +1,183 @@
+/* Calculator Textual Theme — dark, accent #6366f1 */
+
+Screen {
+  background: #0f0f13;
+}
+
+Header {
+  background: #1a1a23;
+  color: #e4e4e7;
+}
+
+Footer {
+  background: #1a1a23;
+  color: #8e8e99;
+}
+
+/* ── Nav bar ── */
+
+.nav-bar {
+  dock: top;
+  height: 3;
+  background: #14141c;
+  padding: 0 1;
+}
+
+.nav-btn {
+  min-width: 10;
+  height: 3;
+  margin: 0 1;
+  background: #1c1c26;
+  color: #9c9ca6;
+  border: none;
+}
+
+.nav-btn.active {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.nav-btn:hover {
+  background: #2c2c38;
+}
+
+/* ── Display ── */
+
+#display, #basic-display, #sci-display, #prog-display {
+  background: #13131c;
+  color: #e4e4e7;
+  padding: 1 2;
+  min-height: 4;
+  height: auto;
+  border: none;
+  text-align: right;
+}
+
+/* ── Calc body (flex panels) ── */
+
+.calc-body {
+  height: auto;
+  margin-top: 1;
+}
+
+/* ── Digits panel ── */
+
+.calc-digits-panel {
+  grid-size: 3;
+  grid-gutter: 1;
+  height: auto;
+}
+
+#func-left { grid-size: 2; }
+#func-right { grid-size: 3; }
+#prog-left { grid-size: 4; }
+
+/* ── Ops panel ── */
+
+.calc-ops-panel {
+  grid-size: 1;
+  grid-gutter: 1;
+  height: auto;
+  background: #1e1e35;
+  padding: 1;
+}
+
+/* ── Panel divider ── */
+
+.calc-panel-divider {
+  width: 3;
+  background: #6366f1;
+  opacity: 0.3;
+}
+
+/* ── Calc buttons ── */
+
+.calc-btn {
+  min-width: 6;
+  min-height: 3;
+  border: none;
+  padding: 0 1;
+}
+
+.calc-btn-digit {
+  background: #24242f;
+  color: #e4e4e7;
+}
+
+.calc-btn-digit:hover {
+  background: #2c2c38;
+}
+
+.calc-btn-digit:active {
+  background: #343440;
+}
+
+.calc-btn-operator {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.calc-btn-operator:hover {
+  background: #5558e8;
+}
+
+.calc-btn-operator:active {
+  background: #474ad4;
+}
+
+.calc-btn-func {
+  background: #1c1c26;
+  color: #9c9ca6;
+}
+
+.calc-btn-func:hover {
+  background: #24242e;
+}
+
+.calc-btn-func:active {
+  background: #2c2c36;
+}
+
+.calc-btn-toggle {
+  background: #1c1c26;
+  color: #777;
+  min-width: 8;
+  min-height: 2;
+}
+
+.calc-btn-toggle.active {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+.calc-btn-toggle:hover {
+  filter: brightness(1.08);
+}
+
+/* ── Angle bar ── */
+
+.angle-bar {
+  height: 3;
+  background: #13131c;
+  padding: 0 1;
+  margin-top: 1;
+}
+
+/* ── Programmer rows ── */
+
+.prog-row {
+  padding: 0 1;
+  min-height: 2;
+  background: #13131c;
+}
+
+.prog-toggles {
+  height: 3;
+  padding: 0;
+  margin-top: 1;
+}
+
+.prog-toggles > .calc-btn {
+  min-width: 8;
+  min-height: 2;
+}

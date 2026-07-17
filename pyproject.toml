@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "calculator"
+version = "1.0.0"
+description = "Multi-mode TUI calculator — Basic, Scientific, Programmer"
+requires-python = ">=3.10"
+dependencies = [
+    "textual>=1.0",
+]
+
+[project.scripts]
+calculator = "calc.__main__:main"
