@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
 import Display from './Display'
 import { basicReducer, INITIAL_STATE } from '../utils/basicEngine'
 import './Calculator.css'
@@ -13,6 +13,30 @@ function Btn({ label, className, onClick }) {
 
 export default function BasicCalculator() {
   const [state, dispatch] = useReducer(basicReducer, INITIAL_STATE)
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
+      const k = e.key
+      if (k >= '0' && k <= '9') { dispatch({ type: 'INPUT_DIGIT', digit: k }); e.preventDefault(); return }
+      switch (k) {
+        case '.': dispatch({ type: 'INPUT_DECIMAL' }); break
+        case '+': dispatch({ type: 'INPUT_OPERATOR', operator: '+' }); break
+        case '-': dispatch({ type: 'INPUT_OPERATOR', operator: '-' }); break
+        case '*': dispatch({ type: 'INPUT_OPERATOR', operator: '×' }); break
+        case '/': dispatch({ type: 'INPUT_OPERATOR', operator: '÷' }); break
+        case 'Enter': case '=': dispatch({ type: 'CALCULATE' }); break
+        case 'Escape': dispatch({ type: 'CLEAR' }); break
+        case 'Delete': dispatch({ type: 'CLEAR_ENTRY' }); break
+        case 'Backspace': dispatch({ type: 'BACKSPACE' }); break
+        case '%': dispatch({ type: 'PERCENTAGE' }); break
+        default: return
+      }
+      e.preventDefault()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [dispatch])
 
   const d = (type, extra) => () => dispatch({ type, ...extra })
 
